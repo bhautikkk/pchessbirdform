@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Profile Registration</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="success-overlay">
+        <div class="success-content">
+            <div class="check-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Registration Complete!</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">Welcome to the grandmaster circle.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-card">
+            <div class="header">
+                <h1>Player Registration</h1>
+                <p>Join the elite chess community</p>
+            </div>
+
+            <form id="chessForm" action="https://formsubmit.co/hrr26400@gmail.com" method="POST">
+                <!-- Disable Captcha (optional, but good for testing) -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Magnus Carlsen"
+                            required autocomplete="name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Chess.com Username</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-chess-knight"></i>
+                        <input type="text" id="username" name="username" class="form-control"
+                            placeholder="magnuscarlsen" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Current Chess Rating</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                        <input type="number" id="rating" name="rating" class="form-control" placeholder="2800" min="100"
+                            max="4000" reuqired>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Submit</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
