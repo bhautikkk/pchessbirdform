@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Change false to true to OPEN registration
     // ==========================================
     const isRegistrationOpen = true;
-    const eventId = 'event_test_reset_01'; // CHANGE THIS FOR NEW EVENTS
+    const eventId = 'event_test_reset_01.06'; // CHANGE THIS FOR NEW EVENTS
     // ==========================================
 
     const form = document.getElementById('chessForm');
@@ -63,12 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Prevent double submission and show loading state
+    if (form) {
+        form.addEventListener('submit', function () {
+            const btn = this.querySelector('.submit-btn');
+            if (btn) {
+                btn.innerHTML = '<span>Submitting...</span> <i class="fas fa-spinner fa-spin"></i>';
+                btn.style.opacity = '0.8';
+                btn.style.pointerEvents = 'none';
+            }
+        });
+    }
+
     // Check for success query parameter
     // Check for success query parameter
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
         // Mark user as registered for this event
         localStorage.setItem(eventId, 'true');
+
+        // Hide form and show already registered message (so it's there when overlay closes)
+        if (form) form.style.display = 'none';
+        if (alreadyRegisteredMessage) {
+            alreadyRegisteredMessage.style.display = 'block';
+            alreadyRegisteredMessage.style.animation = 'slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+        }
 
         const successOverlay = document.querySelector('.success-overlay');
         if (successOverlay) {
