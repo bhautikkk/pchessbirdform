@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "currency": "INR",
                 "name": "Chess Tournament",
                 "description": "Registration Fee",
-                "image": "https://bhautikkk.github.io/chessform/assets/logo.png", // Optional: Add a logo URL
+                "image": "https://bhautikkk.github.io/pchessbirdform/assets/logo.png", // Optional: Add a logo URL
                 "handler": function (response) {
                     // Payment Successful
                     document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
